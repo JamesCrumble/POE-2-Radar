@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <PlatformTarget>x64</PlatformTarget>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>embedded</DebugType>
+    <PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="targets.json" />
+    <Content Include="targets.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ImGui.NET" Version="1.91.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ExileCore2">
+      <HintPath>..\..\..\..\ExileCore2_241222_1_0_0+f76aacdb4f471feffcf69387f077aad3c4e4bc3f\ExileCore2.dll</HintPath>
+    </Reference>
+    <Reference Include="GameOffsets2">
+      <HintPath>..\..\..\..\ExileCore2_241222_1_0_0+f76aacdb4f471feffcf69387f077aad3c4e4bc3f\GameOffsets2.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp">
+      <HintPath>..\..\..\..\ExileCore2_241222_1_0_0+f76aacdb4f471feffcf69387f077aad3c4e4bc3f\SixLabors.ImageSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

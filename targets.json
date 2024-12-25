@@ -1,0 +1,142 @@
+{
+  "MapLostTowers": [
+    {
+      "Name": "stairsup",
+      "ExpectedCount": 1,
+      "DisplayName": "Tower stairs up"
+    }
+  ],
+  "G1_15": [
+    {
+      "Name": "Metadata/Terrain/Gallows/Act1/1_15/Objects/CandleMassArenaTitle",
+      "ExpectedCount": 1,
+      "DisplayName": "Candlemass boss (+20 max hp)",
+      "TargetType": "Tile"
+    }
+  ],
+  "G1_14": [
+    {
+      "Name": "GrandEntrance",
+      "ExpectedCount": 1,
+      "DisplayName": "Area transition"
+    }
+  ],
+  "G1_13_2": [
+    {
+      "Name": "Intact",
+      "ExpectedCount": 1,
+      "DisplayName": "Boss arena / next location"
+    }
+  ],
+  "G1_13_1": [
+    {
+      "Name": "UnaYurt",
+      "ExpectedCount": 1,
+      "DisplayName": "Una Yurt item (2 passive skill points)"
+    },
+    {
+      "Name": "boss",
+      "ExpectedCount": 1,
+      "DisplayName": "Wolfs quest"
+    },
+    {
+      "Name": "Metadata/Terrain/Woods/Village/RoadFields/Feature/RoadVillage_Areatransition.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Ogham Village (next location)",
+      "TargetType": "Entity"
+    }
+  ],
+  "G1_11": [
+    {
+      "Name": "CairnBrecon",
+      "ExpectedCount": 1,
+      "DisplayName": "Crowbell boss (2 passive skill points)"
+    },
+    {
+      "Name": "Canopy",
+      "ExpectedCount": 1,
+      "DisplayName": "Freythorn (+30 to spirit boss area)"
+    },
+    {
+      "Name": "Metadata/Terrain/Woods/CliffRoad/ReplaceCurves/Road_RC_04.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Ogham Farmlands (near next location)",
+      "TargetType": "Entity"
+    }
+  ],
+  "G1_9": [
+    {
+      "Name": "tomb_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Boss arena"
+    }
+  ],
+  "G1_8": [
+    {
+      "Name": "mausoleum_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Boss arena"
+    }
+  ],
+  "G1_7": [
+    {
+      "Name": "tomb_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Tomb of the consort (dungeon boss)"
+    },
+    {
+      "Name": "mausoleum_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Mausoleum of the praetor (dungeon boss)"
+    },
+    {
+      "Name": "Metadata/Terrain/Gallows/Act1/1_7/Objects/GraveyardBossMonument",
+      "ExpectedCount": 1,
+      "DisplayName": "Cemetery final boss",
+      "TargetType": "Entity"
+    }
+  ],
+  "G1_6": [
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 1,
+      "DisplayName": "Cemetery of the enternals (next location)"
+    }
+  ],
+  "G1_4": [
+    {
+      "Name": "GrimEntrance",
+      "ExpectedCount": 1,
+      "DisplayName": "The Grim Tangle (next location)"
+    },
+    {
+      "Name": "oldforestside",
+      "ExpectedCount": 1,
+      "DisplayName": "The Red Vale"
+    },
+    {
+      "Name": "bossman",
+      "ExpectedCount": 1,
+      "DisplayName": "The Brambleghast"
+    }
+  ],
+  "G1_2": [
+    {
+      "Name": "FallenTreeSlashTransition",
+      "ExpectedCount": 1,
+      "DisplayName": "Devourer boss transition"
+    },
+    {
+      "Name": "Metadata/Terrain/Tools/AudioTools/G1_2/HagArena",
+      "ExpectedCount": 1,
+      "DisplayName": "Beira of the rotten Pack (+10% to cold resistance)",
+      "TargetType": "Entity"
+    },
+    {
+      "Name": "Metadata/Terrain/Tools/AudioTools/G1_2/ForestEntrance",
+      "ExpectedCount": 1,
+      "DisplayName": "The Grelwood (next location)",
+      "TargetType": "Entity"
+    }
+  ]
+}
