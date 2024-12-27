@@ -19,6 +19,7 @@ using Positioned = ExileCore2.PoEMemory.Components.Positioned;
 using RectangleF = ExileCore2.Shared.RectangleF;
 using ExileCore2.PoEMemory.FilesInMemory;
 using static System.Net.Mime.MediaTypeNames;
+using ExileCore2.PoEMemory.Components;
 
 namespace Radar;
 
@@ -335,19 +336,19 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
                 }
             }
         }
+
         if (Settings.ShowRareMonsters)
         {
+            Vector2 position, mapDelta, mapPos;
             foreach (var entity in GameController.Entities)
             {
                 if (entity.Type != ExileCore2.Shared.Enums.EntityType.Monster) continue;
                 if (entity.Rarity != ExileCore2.Shared.Enums.MonsterRarity.Rare && entity.Rarity != ExileCore2.Shared.Enums.MonsterRarity.Unique) continue;
 
-                var positioned = entity.GetComponent<Positioned>();
-                if (positioned == null) continue;
-
-                var mapDelta = TranslateGridDeltaToMapDelta(positioned.GridPos - playerPosition, playerHeight + _heightData[(int)positioned.GridPos.Y][(int)positioned.GridPos.X]);
-                var mapPos = mapCenter + mapDelta;
-                _backGroundWindowPtr.AddCircleFilled(mapPos, 6, (uint)Color.Gold.ToRgba());
+                position = entity.GridPos;
+                mapDelta = TranslateGridDeltaToMapDelta(position - playerPosition, playerHeight + _heightData[(int)position.Y][(int)position.X]);
+                mapPos = mapCenter + mapDelta;
+                _backGroundWindowPtr.AddCircleFilled(mapPos, 4, (uint)Color.Gold.ToRgba());
             }
         }
 
