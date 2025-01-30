@@ -9,6 +9,7 @@ namespace Radar;
 [Submenu]
 public class DebugSettings
 {
+    public ToggleNode ForceDrawLargeMap { get; set; } = new ToggleNode(false);
     public ToggleNode DrawHeightMap { get; set; } = new ToggleNode(false);
     public ToggleNode DisableHeightAdjust { get; set; } = new ToggleNode(false);
     public ToggleNode SkipNeighborFill { get; set; } = new ToggleNode(false);
@@ -69,6 +70,7 @@ public class RadarSettings : ISettings
     public RangeNode<float> CustomScale { get; set; } = new RangeNode<float>(1, 0.1f, 10);
     public ToggleNode DrawWalkableMap { get; set; } = new ToggleNode(true);
     public ToggleNode ShowRareMonsters { get; set; } = new ToggleNode(true);
+    public ToggleNode RenderCitadelsOnAtlasPanel { get; set; } = new ToggleNode(true);
     public ColorNode TerrainColor { get; set; } = new ColorNode((uint)(new Color(new Vector3(150f) / byte.MaxValue)).ToAbgr());
     public RangeNode<int> MaximumMapTextureDimension { get; set; } = new RangeNode<int>(4096, 100, 4096);
     public RangeNode<int> MaximumPathCount { get; set; } = new RangeNode<int>(1000, 0, 1000);

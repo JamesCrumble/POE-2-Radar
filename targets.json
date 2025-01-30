@@ -1,17 +1,868 @@
 {
-  "MapLostTowers": [
+  "MapUberBoss_StoneCitadel": [
     {
-      "Name": "stairsup",
+      "Name": "doryani_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Doryani arena"
+    }
+  ],
+  "MapAlpineRidge": [
+    {
+      "Name": "pinnacle",
+      "ExpectedCount": 1,
+      "DisplayName": "Precursor Beacon"
+    }
+  ],
+  "MapVaalCity": [
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 1,
+      "DisplayName": "Near the boss"
+    }
+  ],
+  "MapSwampTower": [
+    {
+      "Name": "StairsUp",
+      "ExpectedCount": 2,
+      "DisplayName": "Tower stairs up"
+    },
+    {
+      "Name": "pillar_stairs",
       "ExpectedCount": 1,
       "DisplayName": "Tower stairs up"
     }
   ],
+  "MapBluff": [
+    {
+      "Name": "beacon",
+      "ExpectedCount": 1,
+      "DisplayName": "Tower stairs up"
+    }
+  ],
+  "MapMesa": [
+    {
+      "Name": "peak",
+      "ExpectedCount": 1,
+      "DisplayName": "Tower stairs up"
+    }
+  ],
+  "MapLostTowers": [
+    {
+      "Name": "tower_beacon",
+      "ExpectedCount": 1,
+      "DisplayName": "Precursor Beacon"
+    }
+  ],
+  "C_G3_17": [
+    {
+      "Name": "doryani_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Doryani arena"
+    }
+  ],
+  "C_G3_16_": [
+    {
+      "Name": "arena_inside",
+      "ExpectedCount": 1,
+      "DisplayName": "Sacrifice altar (+2 passive skill points)"
+    },
+    {
+      "Name": "Exit",
+      "ExpectedCount": 1,
+      "DisplayName": "The black chambers"
+    }
+  ],
+  "C_G3_14": [
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 1,
+      "DisplayName": "Near the boss"
+    },
+    {
+      "Name": "atziri_entrance_metatile",
+      "ExpectedCount": 1,
+      "DisplayName": "Aggorat"
+    }
+  ],
+  "C_G3_12": [
+    {
+      "Name": "StairsUp",
+      "ExpectedCount": 2,
+      "DisplayName": "Tower stairs up"
+    },
+    {
+      "Name": "pillar_stairs",
+      "ExpectedCount": 1,
+      "DisplayName": "Tower stairs up"
+    }
+  ],
+  "C_G3_11": [
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Queen of filth"
+    }
+  ],
+  "C_G3_9": [
+    {
+      "Name": "boss_channel_end",
+      "ExpectedCount": 1,
+      "DisplayName": "Mektul, The Forgemaster"
+    }
+  ],
+  "C_G3_8": [
+    {
+      "Name": "atziri_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Apex of filth"
+    },
+    {
+      "Name": "vault_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "The Molten Vault"
+    }
+  ],
+  "C_G3_7": [
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Ignagduk (+30 to spirit boss arena)"
+    }
+  ],
+  "C_G3_6_2": [
+    {
+      "Name": "Machinarium",
+      "ExpectedCount": 1,
+      "DisplayName": "Zicoatl, Warden of the core"
+    },
+    {
+      "Name": "generator",
+      "ExpectedCount": 2,
+      "DisplayName": "Generator"
+    },
+    {
+      "Name": "VaalKeyGemMedium",
+      "DisplayName": "Medium Soul Core",
+      "TargetType": "WorldItem"
+    }
+  ],
+  "C_G3_6_1": [
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 1,
+      "DisplayName": "Blackjaw, +10 fire res"
+    },
+    {
+      "Name": "MechExit",
+      "ExpectedCount": 1,
+      "DisplayName": "Jiquani's Sanctum"
+    },
+    {
+      "Name": "VaalKeyGem",
+      "DisplayName": "Small Soul Core",
+      "TargetType": "WorldItem"
+    }
+  ],
+  "C_G3_5": [
+    {
+      "Name": "observatory_entrance",
+      "ExpectedCount": 1,
+      "DisplayName": "Jiquani's Machinarium"
+    },
+    {
+      "Name": "ChaosTempleEntrance",
+      "ExpectedCount": 1,
+      "DisplayName": "The Temple of Chaos"
+    }
+  ],
+  "C_G3_4": [
+    {
+      "Name": "blank",
+      "ExpectedCount": 2,
+      "DisplayName": "Quest corpse (one of this is correct)"
+    }
+  ],
+  "C_G3_3": [
+    {
+      "Name": "Metadata/Terrain/Jungle/JungleExterior/RuinedThinwall/RuinedThinwall_St_02.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Mighty Silverfist (+2 passive skill points)"
+    },
+    {
+      "Name": "snakepit_entrance",
+      "ExpectedCount": 1,
+      "DisplayName": "The Venom Crypts / Waypoint"
+    },
+    {
+      "Name": "area_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Infested Barrens"
+    }
+  ],
+  "C_G3_2_2": [
+    {
+      "Name": "waterwayslever",
+      "ExpectedCount": 1,
+      "DisplayName": "Canal Lever"
+    }
+  ],
+  "C_G3_2_1": [
+    {
+      "Name": "to_carverbog",
+      "ExpectedCount": 1,
+      "DisplayName": "The Azak Bog"
+    },
+    {
+      "Name": "door",
+      "ExpectedCount": 1,
+      "DisplayName": "The Matlan Waterways / Waypoint"
+    },
+    {
+      "Name": "chimeralwetlands_entrance",
+      "ExpectedCount": 1,
+      "DisplayName": "Chimeral Wetlands"
+    }
+  ],
+  "C_G3_1": [
+    {
+      "Name": "marsh_exit_meta",
+      "ExpectedCount": 1,
+      "DisplayName": "Ziggurat Encampment"
+    }
+  ],
+  "C_G2_10_2": [
+    {
+      "Name": "bossroom",
+      "ExpectedCount": 1,
+      "DisplayName": "Rudja, Dread Engineer"
+    }
+  ],
+  "C_G2_10_1": [
+    {
+      "Name": "foundry_exit",
+      "ExpectedCount": 1,
+      "DisplayName": "Mawdun Mine"
+    }
+  ],
+  "C_G2_9_2_": [
+    {
+      "Name": "Metadata/Terrain/Desert/Pillars/Tops/PillarArena.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Tor Gut, The Defiler"
+    }
+  ],
+  "C_G2_9_1": [
+    {
+      "Name": "stairsup",
+      "ExpectedCount": 1,
+      "DisplayName": "The Spires of Deshar"
+    }
+  ],
+  "C_G2_8": [
+    {
+      "Name": "Transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Path of Mourning"
+    },
+    {
+      "Name": "Metadata/Terrain/Desert/Pillars/Base/PillarBase_Cv_02.tdt",
+      "ExpectedCount": 4,
+      "DisplayName": "+2 passive corpse?"
+    },
+    {
+      "Name": "Metadata/Chests/SpireCorpseChest",
+      "ExpectedCount": 1,
+      "DisplayName": "Fallen Dekhara (+2 passive skill points)",
+      "TargetType": "Entity"
+    }
+  ],
+  "C_G2_7": [
+    {
+      "Name": "titan_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Titan arena"
+    }
+  ],
+  "C_G2_6": [
+    {
+      "Name": "titan_kings",
+      "ExpectedCount": 1,
+      "DisplayName": "Titan transition"
+    },
+    {
+      "Name": "titan_quest*",
+      "ExpectedCount": 3,
+      "DisplayName": "Titan quest to open transition"
+    },
+    {
+      "Name": "boss",
+      "ExpectedCount": 1,
+      "DisplayName": "Peaces placement / Waypoint"
+    }
+  ],
+  "C_G2_5_2": [
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Ekbab, Ancient Steed"
+    }
+  ],
+  "C_G2_5_1": [
+    {
+      "Name": "area_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Area transition"
+    }
+  ],
+  "C_G2_4_3": [
+    {
+      "Name": "bosstransition",
+      "ExpectedCount": 1,
+      "DisplayName": "The Heart of Keth"
+    }
+  ],
+  "C_G2_4_2": [
+    {
+      "Name": "StairsDown",
+      "ExpectedCount": 1,
+      "DisplayName": "Stairs down"
+    }
+  ],
+  "C_G2_4_1": [
+    {
+      "Name": "boss_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "The Lost City"
+    },
+    {
+      "Name": "Metadata/Terrain/Desert/BuriedCity/Features/QueenKabalaRoom_01_meta01.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Kabala, Constrictor queen (+2 passive skill points)"
+    }
+  ],
+  "C_G2_3": [
+    {
+      "Name": "bridge_thin",
+      "ExpectedCount": 1,
+      "DisplayName": "Jamanra, The Risen King"
+    }
+  ],
+  "C_G2_2": [
+    {
+      "Name": "transition",
+      "ExpectedCount": 1,
+      "DisplayName": "The Halani Gates"
+    },
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Balbala, The Traitor (ascendancy trial reveal boss)"
+    }
+  ],
+  "C_G2_1": [
+    {
+      "Name": "HyenaSpawner",
+      "ExpectedCount": 1,
+      "DisplayName": "Hyena quest boss"
+    }
+  ],
+  "C_G1_15": [
+    {
+      "Name": "Chapel",
+      "ExpectedCount": 1,
+      "DisplayName": "Candlemass boss (+20 max hp)"
+    },
+    {
+      "Name": "TransitionDown",
+      "ExpectedCount": 2,
+      "DisplayName": "Transition down"
+    },
+    {
+      "Name": "ArenaTop",
+      "ExpectedCount": 1,
+      "DisplayName": "Boss arena"
+    }
+  ],
+  "C_G1_14": [
+    {
+      "Name": "GrandEntrance",
+      "ExpectedCount": 1,
+      "DisplayName": "Area transition"
+    }
+  ],
+  "C_G1_13_2": [
+    {
+      "Name": "Intact",
+      "ExpectedCount": 1,
+      "DisplayName": "Boss arena / next location"
+    },
+    {
+      "Name": "Blacksmith_Large",
+      "ExpectedCount": 1,
+      "DisplayName": "Reforge bench unlock"
+    }
+  ],
+  "C_G1_13_1": [
+    {
+      "Name": "UnaYurt",
+      "ExpectedCount": 1,
+      "DisplayName": "Una Yurt item (2 passive skill points)"
+    },
+    {
+      "Name": "boss",
+      "ExpectedCount": 1,
+      "DisplayName": "Wolfs quest"
+    },
+    {
+      "Name": "Metadata/Terrain/Woods/Village/RoadFields/Feature/RoadVillage_Areatransition.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Ogham Village (next location)",
+      "TargetType": "Entity"
+    }
+  ],
+  "C_G1_12": [
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "King of the mists arena"
+    },
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 5,
+      "DisplayName": "Ritual?(3->boss)"
+    }
+  ],
+  "C_G1_11": [
+    {
+      "Name": "CairnBrecon",
+      "ExpectedCount": 1,
+      "DisplayName": "Crowbell boss (2 passive skill points)"
+    },
+    {
+      "Name": "transition2",
+      "ExpectedCount": 2,
+      "DisplayName": "Ogham Farmlands (near next location)"
+    }
+  ],
+  "C_G1_9": [
+    {
+      "Name": "tomb_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Boss arena"
+    }
+  ],
+  "C_G1_8": [
+    {
+      "Name": "mausoleum_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Boss arena"
+    }
+  ],
+  "C_G1_7": [
+    {
+      "Name": "tomb_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Tomb of the consort (dungeon boss)"
+    },
+    {
+      "Name": "mausoleum_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Mausoleum of the praetor (dungeon boss)"
+    }
+  ],
+  "C_G1_6": [
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 1,
+      "DisplayName": "Cemetery of the enternals (next location)"
+    }
+  ],
+  "C_G1_5": [
+    {
+      "Name": "Metadata/Terrain/Gallows/Act1/1_5/Objects/QuestChestBase",
+      "ExpectedCount": 4,
+      "DisplayName": "Rust King quest. ?????????? Cannot build pathing route"
+    }
+  ],
+  "C_G1_4": [
+    {
+      "Name": "GrimEntrance",
+      "ExpectedCount": 1,
+      "DisplayName": "The Grim Tangle (next location)"
+    },
+    {
+      "Name": "oldforestside",
+      "ExpectedCount": 1,
+      "DisplayName": "The Red Vale (before next location)"
+    },
+    {
+      "Name": "bossman",
+      "ExpectedCount": 1,
+      "DisplayName": "The Brambleghast"
+    },
+    {
+      "Name": "OldForest_Clearfell",
+      "ExpectedCount": 1,
+      "DisplayName": "Clearfell"
+    },
+    {
+      "Name": "corpsetree",
+      "ExpectedCount": 1,
+      "DisplayName": "Corpse tree (quest after rust king)"
+    }
+  ],
+  "C_G1_2": [
+    {
+      "Name": "hagwitch",
+      "ExpectedCount": 1,
+      "DisplayName": "Beira of the rotten Pack (+10% to cold resistance)"
+    },
+    {
+      "Name": "ClearFell_OldForest",
+      "ExpectedCount": 1,
+      "DisplayName": "The Grelwood (next location)"
+    }
+  ],
+  "C_G1_1": [
+    {
+      "Name": "EncampmentFront",
+      "ExpectedCount": 1,
+      "DisplayName": "Town path"
+    }
+  ],
+  "G3_17": [
+    {
+      "Name": "doryani_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Doryani arena"
+    }
+  ],
+  "G3_16": [
+    {
+      "Name": "arena_inside",
+      "ExpectedCount": 1,
+      "DisplayName": "Sacrifice altar (+2 passive skill points)"
+    },
+    {
+      "Name": "Exit",
+      "ExpectedCount": 1,
+      "DisplayName": "The black chambers"
+    }
+  ],
+  "G3_14": [
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 1,
+      "DisplayName": "Near the boss"
+    },
+    {
+      "Name": "atziri_entrance_metatile",
+      "ExpectedCount": 1,
+      "DisplayName": "Aggorat"
+    }
+  ],
+  "G3_12": [
+    {
+      "Name": "StairsUp",
+      "ExpectedCount": 2,
+      "DisplayName": "Tower stairs up"
+    },
+    {
+      "Name": "pillar_stairs",
+      "ExpectedCount": 1,
+      "DisplayName": "Tower stairs up"
+    }
+  ],
+  "G3_11": [
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Queen of filth"
+    }
+  ],
+  "G3_9": [
+    {
+      "Name": "boss_channel_end",
+      "ExpectedCount": 1,
+      "DisplayName": "Mektul, The Forgemaster"
+    }
+  ],
+  "G3_8": [
+    {
+      "Name": "atziri_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Apex of filth"
+    },
+    {
+      "Name": "vault_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "The Molten Vault"
+    }
+  ],
+  "G3_7": [
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Ignagduk (+30 to spirit boss arena)"
+    }
+  ],
+  "G3_6_2": [
+    {
+      "Name": "Machinarium",
+      "ExpectedCount": 1,
+      "DisplayName": "Zicoatl, Warden of the core"
+    },
+    {
+      "Name": "generator",
+      "ExpectedCount": 2,
+      "DisplayName": "Generator"
+    },
+    {
+      "Name": "VaalKeyGemMedium",
+      "DisplayName": "Medium Soul Core",
+      "TargetType": "WorldItem"
+    }
+  ],
+  "G3_6_1": [
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 1,
+      "DisplayName": "Blackjaw, +10 fire res"
+    },
+    {
+      "Name": "MechExit",
+      "ExpectedCount": 1,
+      "DisplayName": "Jiquani's Sanctum"
+    },
+    {
+      "Name": "VaalKeyGem",
+      "DisplayName": "Small Soul Core",
+      "TargetType": "WorldItem"
+    }
+  ],
+  "G3_5": [
+    {
+      "Name": "observatory_entrance",
+      "ExpectedCount": 1,
+      "DisplayName": "Jiquani's Machinarium"
+    },
+    {
+      "Name": "ChaosTempleEntrance",
+      "ExpectedCount": 1,
+      "DisplayName": "The Temple of Chaos"
+    }
+  ],
+  "G3_4": [
+    {
+      "Name": "blank",
+      "ExpectedCount": 2,
+      "DisplayName": "Quest corpse (one of this is correct)"
+    }
+  ],
+  "G3_3": [
+    {
+      "Name": "Metadata/Terrain/Jungle/JungleExterior/RuinedThinwall/RuinedThinwall_St_02.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Mighty Silverfist (+2 passive skill points)"
+    },
+    {
+      "Name": "snakepit_entrance",
+      "ExpectedCount": 1,
+      "DisplayName": "The Venom Crypts / Waypoint"
+    },
+    {
+      "Name": "area_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Infested Barrens"
+    }
+  ],
+  "G3_2_2": [
+    {
+      "Name": "waterwayslever",
+      "ExpectedCount": 1,
+      "DisplayName": "Canal Lever"
+    }
+  ],
+  "G3_2_1": [
+    {
+      "Name": "to_carverbog",
+      "ExpectedCount": 1,
+      "DisplayName": "The Azak Bog"
+    },
+    {
+      "Name": "door",
+      "ExpectedCount": 1,
+      "DisplayName": "The Matlan Waterways / Waypoint"
+    },
+    {
+      "Name": "chimeralwetlands_entrance",
+      "ExpectedCount": 1,
+      "DisplayName": "Chimeral Wetlands"
+    }
+  ],
+  "G3_1": [
+    {
+      "Name": "marsh_exit_meta",
+      "ExpectedCount": 1,
+      "DisplayName": "Ziggurat Encampment"
+    }
+  ],
+  "G2_10_2": [
+    {
+      "Name": "bossroom",
+      "ExpectedCount": 1,
+      "DisplayName": "Rudja, Dread Engineer"
+    }
+  ],
+  "G2_10_1": [
+    {
+      "Name": "foundry_exit",
+      "ExpectedCount": 1,
+      "DisplayName": "Mawdun Mine"
+    }
+  ],
+  "G2_9_2": [
+    {
+      "Name": "Metadata/Terrain/Desert/Pillars/Tops/PillarArena.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Tor Gut, The Defiler"
+    },
+    {
+      "Name": "wide_shrine",
+      "ExpectedCount": 1,
+      "DisplayName": "Sisters of Garukhan (+10 lightning resistance)"
+    }
+  ],
+  "G2_9_1": [
+    {
+      "Name": "stairsup",
+      "ExpectedCount": 1,
+      "DisplayName": "The Spires of Deshar"
+    }
+  ],
+  "G2_8": [
+    {
+      "Name": "Transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Path of Mourning"
+    },
+    {
+      "Name": "Metadata/Terrain/Desert/Pillars/Base/PillarBase_Cv_02.tdt",
+      "ExpectedCount": 4,
+      "DisplayName": "+2 passive corpse?"
+    },
+    {
+      "Name": "Metadata/Chests/SpireCorpseChest",
+      "ExpectedCount": 1,
+      "DisplayName": "Fallen Dekhara (+2 passive skill points)",
+      "TargetType": "Entity"
+    }
+  ],
+  "G2_7": [
+    {
+      "Name": "titan_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Titan arena"
+    }
+  ],
+  "G2_6": [
+    {
+      "Name": "titan_kings",
+      "ExpectedCount": 1,
+      "DisplayName": "Titan transition"
+    },
+    {
+      "Name": "titan_quest*",
+      "ExpectedCount": 3,
+      "DisplayName": "Titan quest to open transition"
+    },
+    {
+      "Name": "boss",
+      "ExpectedCount": 1,
+      "DisplayName": "Peaces placement / Waypoint"
+    }
+  ],
+  "G2_5_2": [
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Ekbab, Ancient Steed"
+    }
+  ],
+  "G2_5_1": [
+    {
+      "Name": "area_transition",
+      "ExpectedCount": 1,
+      "DisplayName": "Area transition"
+    }
+  ],
+  "G2_4_3": [
+    {
+      "Name": "bosstransition",
+      "ExpectedCount": 1,
+      "DisplayName": "The Heart of Keth"
+    }
+  ],
+  "G2_4_2": [
+    {
+      "Name": "StairsDown",
+      "ExpectedCount": 1,
+      "DisplayName": "Stairs down"
+    }
+  ],
+  "G2_4_1": [
+    {
+      "Name": "boss_arena",
+      "ExpectedCount": 1,
+      "DisplayName": "The Lost City"
+    },
+    {
+      "Name": "Metadata/Terrain/Desert/BuriedCity/Features/QueenKabalaRoom_01_meta01.tdt",
+      "ExpectedCount": 1,
+      "DisplayName": "Kabala, Constrictor queen (+2 passive skill points)"
+    }
+  ],
+  "G2_3": [
+    {
+      "Name": "bridge_thin",
+      "ExpectedCount": 1,
+      "DisplayName": "Jamanra, The Risen King"
+    }
+  ],
+  "G2_2": [
+    {
+      "Name": "transition",
+      "ExpectedCount": 1,
+      "DisplayName": "The Halani Gates"
+    },
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "Balbala, The Traitor (ascendancy trial reveal boss)"
+    }
+  ],
+  "G2_1": [
+    {
+      "Name": "HyenaSpawner",
+      "ExpectedCount": 1,
+      "DisplayName": "Hyena quest boss"
+    }
+  ],
   "G1_15": [
     {
-      "Name": "Metadata/Terrain/Gallows/Act1/1_15/Objects/CandleMassArenaTitle",
+      "Name": "Chapel",
       "ExpectedCount": 1,
-      "DisplayName": "Candlemass boss (+20 max hp)",
-      "TargetType": "Tile"
+      "DisplayName": "Candlemass boss (+20 max hp)"
+    },
+    {
+      "Name": "TransitionDown",
+      "ExpectedCount": 2,
+      "DisplayName": "Transition down"
+    },
+    {
+      "Name": "ArenaTop",
+      "ExpectedCount": 1,
+      "DisplayName": "Boss arena"
     }
   ],
   "G1_14": [
@@ -26,6 +877,11 @@
       "Name": "Intact",
       "ExpectedCount": 1,
       "DisplayName": "Boss arena / next location"
+    },
+    {
+      "Name": "Blacksmith_Large",
+      "ExpectedCount": 1,
+      "DisplayName": "Reforge bench unlock"
     }
   ],
   "G1_13_1": [
@@ -46,6 +902,18 @@
       "TargetType": "Entity"
     }
   ],
+  "G1_12": [
+    {
+      "Name": "arena",
+      "ExpectedCount": 1,
+      "DisplayName": "King of the mists arena"
+    },
+    {
+      "Name": "forcedblank",
+      "ExpectedCount": 5,
+      "DisplayName": "Ritual?(3->boss)"
+    }
+  ],
   "G1_11": [
     {
       "Name": "CairnBrecon",
@@ -58,10 +926,9 @@
       "DisplayName": "Freythorn (+30 to spirit boss area)"
     },
     {
-      "Name": "Metadata/Terrain/Woods/CliffRoad/ReplaceCurves/Road_RC_04.tdt",
-      "ExpectedCount": 1,
-      "DisplayName": "Ogham Farmlands (near next location)",
-      "TargetType": "Entity"
+      "Name": "transition2",
+      "ExpectedCount": 2,
+      "DisplayName": "Ogham Farmlands (near next location)"
     }
   ],
   "G1_9": [
@@ -88,12 +955,6 @@
       "Name": "mausoleum_transition",
       "ExpectedCount": 1,
       "DisplayName": "Mausoleum of the praetor (dungeon boss)"
-    },
-    {
-      "Name": "Metadata/Terrain/Gallows/Act1/1_7/Objects/GraveyardBossMonument",
-      "ExpectedCount": 1,
-      "DisplayName": "Cemetery final boss",
-      "TargetType": "Entity"
     }
   ],
   "G1_6": [
@@ -101,6 +962,13 @@
       "Name": "forcedblank",
       "ExpectedCount": 1,
       "DisplayName": "Cemetery of the enternals (next location)"
+    }
+  ],
+  "G1_5": [
+    {
+      "Name": "Metadata/Terrain/Gallows/Act1/1_5/Objects/QuestChestBase",
+      "ExpectedCount": 4,
+      "DisplayName": "Rust King quest. ?????????? Cannot build pathing route"
     }
   ],
   "G1_4": [
@@ -112,31 +980,48 @@
     {
       "Name": "oldforestside",
       "ExpectedCount": 1,
-      "DisplayName": "The Red Vale"
+      "DisplayName": "The Red Vale (before next location)"
     },
     {
       "Name": "bossman",
       "ExpectedCount": 1,
       "DisplayName": "The Brambleghast"
+    },
+    {
+      "Name": "OldForest_Clearfell",
+      "ExpectedCount": 1,
+      "DisplayName": "Clearfell"
+    },
+    {
+      "Name": "corpsetree",
+      "ExpectedCount": 1,
+      "DisplayName": "Corpse tree (quest after rust king)"
     }
   ],
   "G1_2": [
     {
-      "Name": "FallenTreeSlashTransition",
+      "Name": "hagwitch",
       "ExpectedCount": 1,
-      "DisplayName": "Devourer boss transition"
+      "DisplayName": "Beira of the rotten Pack (+10% to cold resistance)"
     },
     {
-      "Name": "Metadata/Terrain/Tools/AudioTools/G1_2/HagArena",
+      "Name": "ClearFell_OldForest",
       "ExpectedCount": 1,
-      "DisplayName": "Beira of the rotten Pack (+10% to cold resistance)",
-      "TargetType": "Entity"
-    },
+      "DisplayName": "The Grelwood (next location)"
+    }
+  ],
+  "G1_1": [
     {
-      "Name": "Metadata/Terrain/Tools/AudioTools/G1_2/ForestEntrance",
+      "Name": "EncampmentFront",
       "ExpectedCount": 1,
-      "DisplayName": "The Grelwood (next location)",
-      "TargetType": "Entity"
+      "DisplayName": "Town path"
+    }
+  ],
+  "*": [
+    {
+      "Name": "waypoint",
+      "ExpectedCount": 1,
+      "DisplayName": "Waypoint"
     }
   ]
 }

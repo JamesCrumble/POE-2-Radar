@@ -6,6 +6,6 @@ namespace Radar;
 [JsonConverter(typeof(StringEnumConverter))]
 public enum TargetType
 {
-    Tile,
-    Entity
+    Entity,
+    WorldItem
 }

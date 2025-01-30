@@ -6,20 +6,18 @@ using System.Numerics;
 using System.Text.RegularExpressions;
 using System.Threading;
 using ExileCore2;
-using System.Threading.Tasks;
+using ExileCore2.PoEMemory.Components;
 using ExileCore2.PoEMemory.Elements;
+using ExileCore2.PoEMemory.FilesInMemory;
 using ExileCore2.PoEMemory.MemoryObjects;
-using ExileCore2.Shared;
 using ExileCore2.Shared.Helpers;
 using GameOffsets2;
 using GameOffsets2.Native;
 using ImGuiNET;
+using static System.Net.Mime.MediaTypeNames;
 using Color = SharpDX.Color;
 using Positioned = ExileCore2.PoEMemory.Components.Positioned;
 using RectangleF = ExileCore2.Shared.RectangleF;
-using ExileCore2.PoEMemory.FilesInMemory;
-using static System.Net.Mime.MediaTypeNames;
-using ExileCore2.PoEMemory.Components;
 
 namespace Radar;
 
@@ -121,31 +119,30 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
     public override void EntityAdded(Entity entity)
     {
         var positioned = entity.GetComponent<Positioned>();
-        if (positioned != null)
+        if (positioned == null) return;
+    
+        var path = entity.Path;
+        if (!_currentZoneTargetEntityPaths.Contains(path)) return;
+     
+        bool alreadyContains = false;
+        var truncatedPos = positioned.GridPos.Truncate();
+        _allTargetLocations.AddOrUpdate(path, _ => new List<Vector2i> { truncatedPos },
+            // ReSharper disable once AssignmentInConditionalExpression
+            (_, l) => (alreadyContains = l.Contains(truncatedPos)) ? l : l.Append(truncatedPos).ToList());
+        _locationsByPosition.AddOrUpdate(truncatedPos, _ => new List<string> { path },
+            (_, l) => l.Contains(path) ? l : l.Append(path).ToList());
+        if (!alreadyContains)
         {
-            var path = entity.Path;
-            if (_currentZoneTargetEntityPaths.Contains(path))
+            var targetDesc = _targetDescriptionsInArea[path];
+            var oldValue = _clusteredTargetLocations.GetValueOrDefault(path);
+            
+            var newValue = _clusteredTargetLocations.AddOrUpdate(path,
+                _ => ClusterTarget(targetDesc),
+                (_, _) => ClusterTarget(targetDesc)
+                );
+            foreach (var newLocation in newValue.Locations.Except(oldValue?.Locations ?? Array.Empty<Vector2>()))
             {
-                bool alreadyContains = false;
-                var truncatedPos = positioned.GridPos.Truncate();
-                _allTargetLocations.AddOrUpdate(path, _ => new List<Vector2i> { truncatedPos },
-                    // ReSharper disable once AssignmentInConditionalExpression
-                    (_, l) => (alreadyContains = l.Contains(truncatedPos)) ? l : l.Append(truncatedPos).ToList());
-                _locationsByPosition.AddOrUpdate(truncatedPos, _ => new List<string> { path },
-                    (_, l) => l.Contains(path) ? l : l.Append(path).ToList());
-                if (!alreadyContains)
-                {
-                    var targetDesc = _targetDescriptionsInArea[path];
-                    var oldValue = _clusteredTargetLocations.GetValueOrDefault(path);
-                    var newValue = _clusteredTargetLocations.AddOrUpdate(path,
-                        _ => ClusterTarget(targetDesc),
-                        (_, _) => ClusterTarget(targetDesc)
-                    );
-                    foreach (var newLocation in newValue.Locations.Except(oldValue.Locations ?? Array.Empty<Vector2>()))
-                    {
-                        AddRoute(newLocation);
-                    }
-                }
+                AddRoute(newLocation);
             }
         }
     }
@@ -163,6 +160,28 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
     public override void Render()
     {
         var ingameUi = GameController.Game.IngameState.IngameUi;
+
+        if (Settings.RenderCitadelsOnAtlasPanel && ingameUi.WorldMap.AtlasPanel.IsVisible)
+        {
+            foreach (var desc in ingameUi.WorldMap.AtlasPanel.Descriptions)
+            {
+                if (!desc.Element.Area.Name.Contains("Citadel")) continue;
+
+                var absolutePosition = desc.Element.Position;
+                var elementWidthCenter = (int)(desc.Element.Width / 2);
+                var elementHeightCenter = (int)(desc.Element.Height / 2);
+
+                var onScreenPosition = new Vector2(
+                    int.Max(elementWidthCenter, int.Min(GameController.IngameState.Camera.Width - elementWidthCenter, (int)absolutePosition.X + elementWidthCenter)),
+                    int.Max(elementHeightCenter, int.Min(GameController.IngameState.Camera.Height - elementHeightCenter, (int)absolutePosition.Y + elementHeightCenter))
+                );
+
+                if (desc.Element.Area.Name.Contains("Copper")) Graphics.DrawCircleFilled(onScreenPosition, 10, System.Drawing.Color.SandyBrown, 5);
+                else if (desc.Element.Area.Name.Contains("Iron")) Graphics.DrawCircleFilled(onScreenPosition, 10, System.Drawing.Color.Silver, 5);
+                else if (desc.Element.Area.Name.Contains("Stone")) Graphics.DrawCircleFilled(onScreenPosition, 10, System.Drawing.Color.LightSlateGray, 5);
+            }
+        }
+
         if (!Settings.Debug.IgnoreFullscreenPanels &&
             ingameUi.FullscreenPanels.Any(x => x.IsVisible))
         {
@@ -205,23 +224,16 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
         _backGroundWindowPtr = ImGui.GetWindowDrawList();
         var map = ingameUi.Map;
         var largeMap = map.LargeMap.AsObject<SubMap>();
-
-        var mapCenter = largeMap.GetClientRect().TopLeft + largeMap.Shift + largeMap.DefaultShift +
-                            new Vector2(Settings.Debug.MapCenterOffsetX, Settings.Debug.MapCenterOffsetY);
-        //I have ABSOLUTELY NO IDEA where 677 comes from, but it works perfectly in all configurations I was able to test. Aspect ratio doesn't matter, just camera height
-        _mapScale = GameController.IngameState.Camera.Height / 677f * largeMap.Zoom * Settings.CustomScale;
-        DrawLargeMap(mapCenter);
-        DrawTargets(mapCenter);
-
-        // if (largeMap.IsVisible)
-        // {
-        //     var mapCenter = largeMap.GetClientRect().TopLeft.ToVector2Num() + largeMap.ShiftNum + largeMap.DefaultShiftNum +
-        //                     new Vector2(Settings.Debug.MapCenterOffsetX, Settings.Debug.MapCenterOffsetY);
-        //     //I have ABSOLUTELY NO IDEA where 677 comes from, but it works perfectly in all configurations I was able to test. Aspect ratio doesn't matter, just camera height
-        //     _mapScale = GameController.IngameState.Camera.Height / 677f * largeMap.Zoom * Settings.CustomScale;
-        //     DrawLargeMap(mapCenter);
-        //     DrawTargets(mapCenter);
-        // }
+        
+        if (largeMap.IsVisible || Settings.Debug.ForceDrawLargeMap)
+        {
+            var mapCenter = largeMap.GetClientRect().TopLeft + largeMap.Shift + largeMap.DefaultShift +
+                                new Vector2(Settings.Debug.MapCenterOffsetX, Settings.Debug.MapCenterOffsetY);
+            // I have ABSOLUTELY NO IDEA where 677 comes from, but it works perfectly in all configurations I was able to test. Aspect ratio doesn't matter, just camera height
+            _mapScale = GameController.IngameState.Camera.Height / 677f * largeMap.Zoom * Settings.CustomScale;
+            DrawLargeMap(mapCenter);
+            DrawTargets(mapCenter);
+        }
 
         DrawWorldPaths(largeMap);
         ImGui.End();
@@ -299,8 +311,6 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
         if (playerRender == null)
             return;
 
-        //DebugWindow.LogMsg($"playerRender.GridPos(): {playerRender.GridPos()}");
-        //DebugWindow.LogMsg($"playerRender.RenderStruct.Height: {playerRender.RenderStruct.Height}");
         var rectangleF = new RectangleF(-playerRender.GridPos().X, -playerRender.GridPos().Y, _areaDimensions.Value.X, _areaDimensions.Value.Y);
         var playerHeight = -playerRender.RenderStruct.Height;
         var p1 = mapCenter + TranslateGridDeltaToMapDelta(new Vector2(rectangleF.Left, rectangleF.Top), playerHeight);
@@ -308,7 +318,6 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
         var p3 = mapCenter + TranslateGridDeltaToMapDelta(new Vector2(rectangleF.Right, rectangleF.Bottom), playerHeight);
         var p4 = mapCenter + TranslateGridDeltaToMapDelta(new Vector2(rectangleF.Left, rectangleF.Bottom), playerHeight);
 
-        //DebugWindow.LogMsg($"(p1: {p1}, p2: {p2}, p3: {p3}, p4: {p4})");
         Graphics.DrawQuad(Graphics.GetTextureId(TextureName), new Vector2(0, 0), new Vector2(0, 0), new Vector2(0, 0), new Vector2(0, 0));
         _backGroundWindowPtr.AddImageQuad(Graphics.GetTextureId(TextureName), p1, p2, p3, p4);
     }
@@ -320,6 +329,7 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
         var playerRender = player.GetComponent<ExileCore2.PoEMemory.Components.Render>();
         if (playerRender == null)
             return;
+
         var playerPosition = new Vector2(playerRender.GridPos().X, playerRender.GridPos().Y);
         var playerHeight = -playerRender.RenderStruct.Height;
         var ithElement = 0;
@@ -334,6 +344,33 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
                     var mapDelta = TranslateGridDeltaToMapDelta(new Vector2(elem.X, elem.Y) - playerPosition, playerHeight + _heightData[elem.Y][elem.X]);
                     DrawBox(mapCenter + mapDelta - new Vector2(2, 2), mapCenter + mapDelta + new Vector2(2, 2), route.MapColor());
                 }
+            }
+
+            foreach (var target in _targetDescriptionsInArea.Values) {
+                if (target.TargetType != TargetType.WorldItem) continue;
+
+                Vector2? position = null;
+                foreach (var entity in GameController.Entities) {
+                    var positioned = entity.GetComponent<Positioned>();
+                    var worldItem = entity.GetComponent<WorldItem>();
+
+                    if (!(worldItem != null && positioned != null && worldItem.ItemEntity.Type != ExileCore2.Shared.Enums.EntityType.Error)) continue;
+                    if (worldItem.ItemEntity.Path.Contains(target.Name))
+                    {
+                        position = entity.GridPos;
+                        break;
+                    }
+                }
+
+                if (position == null) continue;
+
+                var mapDelta = TranslateGridDeltaToMapDelta((Vector2)position - playerPosition, playerHeight + _heightData[(int)position?.Y][(int)position?.X]);
+                var mapPos = mapCenter + mapDelta;
+
+                var textOffset = Graphics.MeasureText(target.DisplayName) / 2f;
+                if (Settings.PathfindingSettings.EnableTargetNameBackground)
+                    DrawBox(mapPos - textOffset, mapPos + textOffset, Color.Black);
+                DrawText(target.DisplayName, mapPos - textOffset, Color.FromRgba(color.ToRgba()));
             }
         }
 
@@ -351,6 +388,7 @@ public partial class Radar : BaseSettingsPlugin<RadarSettings>
                 _backGroundWindowPtr.AddCircleFilled(mapPos, 4, (uint)Color.Gold.ToRgba());
             }
         }
+        
 
         if (Settings.PathfindingSettings.ShowAllTargets)
         {
